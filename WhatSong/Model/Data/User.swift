@@ -8,31 +8,23 @@
 import Foundation
 
 struct User: Codable {
-    var username: String
+    var createdAt: Date
+    var email: String
     var password: String?
-    var profilePictureURL: URL?
-    var posts: [Post] = []
+    var profileImageURL: URL?
+    var username: String?
+//    var posts: [String]
 
     enum CodingKeys: String, CodingKey {
+        case createdAt
+        case email
         case username
         case password
-        case profilePictureURL = "profile_picture_url"
-        case posts
+        case profileImageURL
+//        case posts
     }
 
     private static var debugMode = true
-
-    init(username: String, password: String?, profilePictureURL: URL?) {
-        self.username = username
-        self.password = password
-        self.profilePictureURL = profilePictureURL
-    }
-
-    init(username: String, profilePictureURL: URL?, posts: [Post]) {
-        self.username = username
-        self.profilePictureURL = profilePictureURL
-        self.posts = posts
-    }
 
     enum UserError: Error {
         case invalidURL

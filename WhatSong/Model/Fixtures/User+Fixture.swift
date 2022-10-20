@@ -9,6 +9,6 @@ import Foundation
 
 extension User {
     struct Fixture {
-        static var basic = User(username: "User1", password: nil, profilePictureURL: nil)
+        static var basic = User(createdAt: Date(), email: "testemail@testdomain.com")
     }
 }

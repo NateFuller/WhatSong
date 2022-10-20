@@ -11,7 +11,7 @@ import SwiftUI
 struct WhatSongApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GettingStartedView()
         }
     }
 }
