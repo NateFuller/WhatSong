@@ -19,6 +19,12 @@ struct HTTPResponse {
     private let response: HTTPURLResponse
     let body: Data?
     
+    init(request: HTTPRequest, response: HTTPURLResponse, body: Data?) {
+        self.request = request
+        self.response = response
+        self.body = body
+    }
+    
     var status: HTTPStatus {
         HTTPStatus(rawValue: response.statusCode)
     }

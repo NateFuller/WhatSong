@@ -15,6 +15,13 @@ struct HTTPError: Error {
     let response: HTTPResponse?
     let underlyingError: Error?
     
+    init(code: Code, request: HTTPRequest, response: HTTPResponse? = nil, underlyingError: Error? = nil) {
+        self.code = code
+        self.request = request
+        self.response = response
+        self.underlyingError = underlyingError
+    }
+    
     enum Code {
         case invalidRequest
         case cannotConnect

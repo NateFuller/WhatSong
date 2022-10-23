@@ -20,11 +20,13 @@ struct HTTPRequest {
     private var urlComponents = URLComponents()
     var method: HTTPMethod = .get
     var headers: [String: String] = [:]
-    var body: HTTPBody? = EmptyBody()
+    var body: HTTPBody = EmptyBody()
     
     init() {
         urlComponents.scheme = "https"
     }
+    
+    var url: URL? { urlComponents.url }
     
     var scheme: String { urlComponents.scheme ?? "https" }
     var host: String? {
