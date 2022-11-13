@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  WhatSong
+
+  Created by Nathan Fuller on 10/30/22.
+  
+*/
+
+"error::cannotConnect" = "Unable to establish connection to server";
+"error::notFound" = "Not found";

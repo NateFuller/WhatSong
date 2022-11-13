@@ -9,9 +9,28 @@ import Foundation
 
 struct HTTPStatus: Hashable {
     static let ok = HTTPStatus(rawValue: 200)
+    static let badRequest = HTTPStatus(rawValue: 400)
     static let notFound = HTTPStatus(rawValue: 404)
     
     let rawValue: Int
+    
+    var localizedDescription: String? {
+        switch self {
+        case .notFound:
+            return LocalizedString("error::notFound")
+        default:
+            return nil
+        }
+    }
+    
+    var isError: Bool {
+        switch self {
+        case .badRequest, .notFound:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 struct HTTPResponse {

@@ -23,15 +23,18 @@ struct HTTPRequest {
     var body: HTTPBody = EmptyBody()
     
     init() {
-        urlComponents.scheme = "https"
+        environment = APIClient.shared.environment
     }
     
     var url: URL? { urlComponents.url }
     
-    var scheme: String { urlComponents.scheme ?? "https" }
-    var host: String? {
-        get { urlComponents.host }
-        set { urlComponents.host = newValue }
+//    var scheme: String { urlComponents.scheme ?? "https" }
+    var environment: Environment {
+        didSet {
+            urlComponents.host = environment.host
+            urlComponents.port = environment.port
+            urlComponents.scheme = environment.scheme
+        }
     }
     
     var path: String {

@@ -36,12 +36,28 @@ extension URLSession: HTTPLoading {
             }
         }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        var (data, urlResponse): (Data, URLResponse)
         
-        guard let response = response as? HTTPURLResponse else {
-            return .failure(HTTPError(code: .unknown, request: request))
+        do {
+            (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+            guard let urlResponse = urlResponse as? HTTPURLResponse else {
+                return .failure(HTTPError(code: .unknown, request: request))
+            }
+            
+            let httpResponse = HTTPResponse(request: request, response: urlResponse, body: data)
+            guard !httpResponse.status.isError else {
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                let reason = json?["reason"] as? String
+                return .failure(HTTPError(code: .httpError(status: httpResponse.status),
+                                          reason: reason,
+                                          request: request,
+                                          response: httpResponse))
+            }
+            
+            return .success(httpResponse)
+        } catch {
+            print(error.localizedDescription)
+            throw error
         }
-        
-        return .success(HTTPResponse(request: request, response: response, body: data))
     }
 }
