@@ -8,14 +8,25 @@
 import Foundation
 
 struct User: Codable {
-    var createdAt: Date
+    var id: UUID?
+    var createdAt: Date?
     var email: String
     var password: String?
     var profileImageURL: URL?
     var username: String?
 //    var posts: [String]
+    
+    init(email: String, id: UUID? = nil, username: String? = nil, password: String? = nil, createdAt: Date? = nil, profileImageURL: URL? = nil) {
+        self.email = email
+        self.id = id
+        self.username = username
+        self.password = password
+        self.createdAt = createdAt
+        self.profileImageURL = profileImageURL
+    }
 
     enum CodingKeys: String, CodingKey {
+        case id
         case createdAt
         case email
         case username

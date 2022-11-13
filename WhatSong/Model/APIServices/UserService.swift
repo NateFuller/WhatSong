@@ -9,16 +9,16 @@ import Foundation
 
 class UserService {
     private let loader: HTTPLoading = URLSession.shared
+    private let host = APIClient.shared.environment.host
     
     func create(_ user: User) async throws -> User {
         var request = HTTPRequest()
-        request.host = APIClient.shared.environment.domain
+        request.environment = APIClient.shared.environment
         request.path = "/user/create"
         request.method = .post
         request.body = JSONBody(user)
         
         let result = try await loader.load(request: request)
-        
         
         switch result {
         case .success(let response):
