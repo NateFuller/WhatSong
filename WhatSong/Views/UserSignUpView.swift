@@ -16,9 +16,6 @@ struct UserSignUpView: View {
             Color("Background")
                 .ignoresSafeArea()
             VStack(spacing: 24) {
-                VStack {
-                    Text("Hello")
-                }
                 VStack(alignment: .leading) {
                     Text("email")
                         .italic()

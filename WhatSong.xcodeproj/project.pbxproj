@@ -33,7 +33,6 @@
 		CBE3AC08290EA35100DCB82C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBE3AC07290EA35100DCB82C /* Localizable.strings */; };
 		CBE3AC0A290EA56F00DCB82C /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3AC09290EA56F00DCB82C /* LocalizedString.swift */; };
 		CBF04EDE28D030880055F8B8 /* WhatSongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF04EDD28D030880055F8B8 /* WhatSongApp.swift */; };
-		CBF04EE028D030880055F8B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF04EDF28D030880055F8B8 /* ContentView.swift */; };
 		CBF04EE228D0308C0055F8B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF04EE128D0308C0055F8B8 /* Assets.xcassets */; };
 		CBF04EE528D0308C0055F8B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF04EE428D0308C0055F8B8 /* Preview Assets.xcassets */; };
 		CBF04EED28D030AF0055F8B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF04EEC28D030AF0055F8B8 /* User.swift */; };
@@ -69,7 +68,6 @@
 		CBE3AC09290EA56F00DCB82C /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		CBF04EDA28D030880055F8B8 /* WhatSong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatSong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF04EDD28D030880055F8B8 /* WhatSongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatSongApp.swift; sourceTree = "<group>"; };
-		CBF04EDF28D030880055F8B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CBF04EE128D0308C0055F8B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBF04EE428D0308C0055F8B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBF04EEC28D030AF0055F8B8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				CB059E9728FB23790081EF97 /* ViewModels */,
 				CBE3AC06290EA33B00DCB82C /* Resources */,
 				CBF04EDD28D030880055F8B8 /* WhatSongApp.swift */,
-				CBF04EDF28D030880055F8B8 /* ContentView.swift */,
 				CBF04EE128D0308C0055F8B8 /* Assets.xcassets */,
 				CBF04EE328D0308C0055F8B8 /* Preview Content */,
 				CB56955D28D182CE005ADF65 /* AppDelegate.swift */,
@@ -294,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF04EE028D030880055F8B8 /* ContentView.swift in Sources */,
 				CBDE659D2902007C002D53AD /* HTTPRequest.swift in Sources */,
 				CB56955C28D181C2005ADF65 /* Comment.swift in Sources */,
 				CB56958328D18A00005ADF65 /* CommentView.swift in Sources */,
