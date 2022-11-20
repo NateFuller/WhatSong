@@ -24,8 +24,9 @@
 		CB2E82412905C9EC00F7B06C /* UserSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E82402905C9EC00F7B06C /* UserSignUpViewModel.swift */; };
 		CB56955A28D181B0005ADF65 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56955928D181B0005ADF65 /* Post.swift */; };
 		CB56955C28D181C2005ADF65 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56955B28D181C2005ADF65 /* Comment.swift */; };
-		CB56955E28D182CE005ADF65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56955D28D182CE005ADF65 /* AppDelegate.swift */; };
 		CB56958328D18A00005ADF65 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56958228D18A00005ADF65 /* CommentView.swift */; };
+		CBA672F22923EFE300B2049E /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA672F12923EFE300B2049E /* BannerView.swift */; };
+		CBA672F62923F67700B2049E /* BannerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA672F52923F67700B2049E /* BannerViewModifier.swift */; };
 		CBD02D5428D91BD0008BB648 /* Comment+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD02D5328D91BD0008BB648 /* Comment+Fixture.swift */; };
 		CBDE65982901FA1D002D53AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDE65972901FA1D002D53AD /* Launch Screen.storyboard */; };
 		CBDE659A2901FDB5002D53AD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE65992901FDB5002D53AD /* APIClient.swift */; };
@@ -57,8 +58,9 @@
 		CB2E82402905C9EC00F7B06C /* UserSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpViewModel.swift; sourceTree = "<group>"; };
 		CB56955928D181B0005ADF65 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CB56955B28D181C2005ADF65 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		CB56955D28D182CE005ADF65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB56958228D18A00005ADF65 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		CBA672F12923EFE300B2049E /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		CBA672F52923F67700B2049E /* BannerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModifier.swift; sourceTree = "<group>"; };
 		CBD02D5328D91BD0008BB648 /* Comment+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Fixture.swift"; sourceTree = "<group>"; };
 		CBDE65962901F466002D53AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CBDE65972901FA1D002D53AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				CB059E9F28FB42AD0081EF97 /* WSTextFieldStyle.swift */,
+				CBA672F52923F67700B2049E /* BannerViewModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				CB2E823E2905C79E00F7B06C /* UserSignUpView.swift */,
 				CB059EA128FB805A0081EF97 /* View+Placeholder.swift */,
 				CBDE65972901FA1D002D53AD /* Launch Screen.storyboard */,
+				CBA672F12923EFE300B2049E /* BannerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,7 +198,6 @@
 				CBF04EDD28D030880055F8B8 /* WhatSongApp.swift */,
 				CBF04EE128D0308C0055F8B8 /* Assets.xcassets */,
 				CBF04EE328D0308C0055F8B8 /* Preview Content */,
-				CB56955D28D182CE005ADF65 /* AppDelegate.swift */,
 			);
 			path = WhatSong;
 			sourceTree = "<group>";
@@ -299,13 +302,14 @@
 				CB2E823B2905B8BD00F7B06C /* UserService.swift in Sources */,
 				CBD02D5428D91BD0008BB648 /* Comment+Fixture.swift in Sources */,
 				CB2E82352904E7A900F7B06C /* EmptyBody.swift in Sources */,
-				CB56955E28D182CE005ADF65 /* AppDelegate.swift in Sources */,
 				CBE3AC0A290EA56F00DCB82C /* LocalizedString.swift in Sources */,
 				CB059E9B28FB25980081EF97 /* GettingStartedView.swift in Sources */,
+				CBA672F22923EFE300B2049E /* BannerView.swift in Sources */,
 				CBDE659A2901FDB5002D53AD /* APIClient.swift in Sources */,
 				CB2E82302904E41500F7B06C /* HTTPError.swift in Sources */,
 				CB059EA228FB805A0081EF97 /* View+Placeholder.swift in Sources */,
 				CB059E9D28FB3B470081EF97 /* LoginViewModel.swift in Sources */,
+				CBA672F62923F67700B2049E /* BannerViewModifier.swift in Sources */,
 				CB2E823D2905C5FA00F7B06C /* URLSession+HTTPLoading.swift in Sources */,
 				CBF04EED28D030AF0055F8B8 /* User.swift in Sources */,
 				CB2E82412905C9EC00F7B06C /* UserSignUpViewModel.swift in Sources */,

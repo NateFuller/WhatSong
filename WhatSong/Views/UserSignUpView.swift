@@ -7,9 +7,16 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct UserSignUpView: View {
-    @ObservedObject var viewModel: UserSignUpViewModel = UserSignUpViewModel()
+    @ObservedObject var viewModel: UserSignUpViewModel
+    
+    var cancellable: AnyCancellable?
+    
+    init(viewModel: UserSignUpViewModel = UserSignUpViewModel()) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ZStack {
@@ -32,26 +39,12 @@ struct UserSignUpView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(Color("Accent"))
                     
-                    ZStack(alignment: .trailing) {
-                        Group {
-                            if viewModel.isSecured {
-                                SecureField("enter password here", text: $viewModel.password)
-                                    .textFieldStyle(WSTextFieldStyle())
-                            } else {
-                                TextField("enter password here", text: $viewModel.password)
-                                    .textFieldStyle(WSTextFieldStyle())
-                            }
+                    SecureField("enter password here", text: $viewModel.password) {
+                        Task {
+                            await viewModel.submit()
                         }
-                        
-                        Button(action: {
-                             viewModel.isSecured.toggle()
-                        }) {
-                            Image(systemName: viewModel.isSecured ? "eye.slash" : "eye")
-                                .tint(Color("Accent"))
-                                .frame(width: 20, height: 20)
-                        }
-                        .padding()
                     }
+                    .textFieldStyle(WSTextFieldStyle())
                 }
                 
                 HStack {
@@ -65,9 +58,11 @@ struct UserSignUpView: View {
                     .foregroundColor(Color("Accent"))
                     .buttonStyle(.bordered)
                 }
-                Text(viewModel.error)
             }
             .padding()
+        }
+        .banner(isPresented: $viewModel.shouldDisplayBanner, data: viewModel.bannerData) {
+            viewModel.clearBanner()
         }
     }
 }
