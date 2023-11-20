@@ -139,12 +139,12 @@
 			children = (
 				CB059E9E28FB42820081EF97 /* Modifiers */,
 				CBA672F12923EFE300B2049E /* BannerView.swift */,
+				CBA2C41C2B0BDD4D00F12512 /* Color+Extensions.swift */,
 				CB56958228D18A00005ADF65 /* CommentView.swift */,
 				CB059E9A28FB25980081EF97 /* GettingStartedView.swift */,
-				CB2E823E2905C79E00F7B06C /* UserSignUpView.swift */,
 				CBDE65972901FA1D002D53AD /* Launch Screen.storyboard */,
-				CBA2C41C2B0BDD4D00F12512 /* Color+Extensions.swift */,
 				CBA2C41E2B0BE32900F12512 /* Text+Extensions.swift */,
+				CB2E823E2905C79E00F7B06C /* UserSignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,10 +152,10 @@
 		CBDE659B2902006F002D53AD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				CB059E9328FA48960081EF97 /* Environment.swift */,
 				CBDE65992901FDB5002D53AD /* APIClient.swift */,
 				CB2E82362904E7CB00F7B06C /* DataBody.swift */,
 				CB2E82342904E7A900F7B06C /* EmptyBody.swift */,
+				CB059E9328FA48960081EF97 /* Environment.swift */,
 				CB2E82322904E78E00F7B06C /* HTTPBody.swift */,
 				CB2E822F2904E41500F7B06C /* HTTPError.swift */,
 				CBDE659C2902007C002D53AD /* HTTPRequest.swift */,
