@@ -20,16 +20,15 @@ struct UserSignUpView: View {
     
     var body: some View {
         ZStack {
-            Color("Background")
-                .ignoresSafeArea()
+            Color.Background.page.ignoresSafeArea()
             VStack(spacing: 24) {
                 VStack(alignment: .leading) {
                     Text("email")
                         .italic()
                         .font(.system(size: 24))
                         .fontWeight(.semibold)
-                        .foregroundColor(Color("Accent"))
-                    TextField("enter email here", text: $viewModel.email)
+                        .foregroundColor(.Text.primary)
+                    TextField("", text: $viewModel.email, prompt: .placeholder("enter email here"))
                         .textFieldStyle(WSTextFieldStyle())
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
@@ -37,14 +36,15 @@ struct UserSignUpView: View {
                         .italic()
                         .font(.system(size: 24))
                         .fontWeight(.semibold)
-                        .foregroundColor(Color("Accent"))
+                        .foregroundColor(.Text.primary)
                     
-                    SecureField("enter password here", text: $viewModel.password) {
-                        Task {
-                            await viewModel.submit()
+                    SecureField("", text: $viewModel.password, prompt: .placeholder("enter password here"))
+                        .textFieldStyle(WSTextFieldStyle())
+                        .onSubmit {
+                            Task {
+                                await viewModel.submit()
+                            }
                         }
-                    }
-                    .textFieldStyle(WSTextFieldStyle())
                 }
                 
                 HStack {
@@ -55,13 +55,16 @@ struct UserSignUpView: View {
                         }
                     }
                     .font(.custom("Helvetica Neue Medium Italic", size: 18))
-                    .foregroundColor(Color("Accent"))
+                    .foregroundColor(.Text.primary)
                     .buttonStyle(.bordered)
                 }
             }
             .padding()
         }
         .banner(isPresented: $viewModel.shouldDisplayBanner, data: viewModel.bannerData) {
+            viewModel.clearBanner()
+        }
+        .onDisappear {
             viewModel.clearBanner()
         }
     }

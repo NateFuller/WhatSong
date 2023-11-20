@@ -11,23 +11,34 @@ struct BannerViewModifier: ViewModifier {
     @Binding var isPresented: Bool
     let data: BannerData
     let action: (() -> Void)?
-
+    
     func body(content: Content) -> some View {
-        ZStack {
-            content
-            VStack(spacing: 0) {
+        content.overlay(
+            VStack {
                 if isPresented {
-                    BannerView(data: data)
-                        .animation(.easeInOut, value: isPresented)
-                        .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
-                        .onTapGesture {
-                            self.isPresented = false
+                    VStack {
+                        BannerView(data: data)
+                        Spacer()
+                    }
+                    .background(.clear)
+                    .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
+                    .onTapGesture {
+                        withAnimation {
+                            isPresented = false
                         }
+                    }
+                    .gesture(
+                        DragGesture()
+                            .onChanged { _ in
+                                withAnimation {
+                                    isPresented = false
+                                }
+                            }
+                    )
                 }
-                Spacer()
             }
-            .background(.clear)
-        }
+                .animation(.easeInOut(duration: 0.4), value: isPresented)
+        )
     }
 }
 

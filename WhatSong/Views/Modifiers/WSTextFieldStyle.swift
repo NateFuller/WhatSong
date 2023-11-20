@@ -11,11 +11,11 @@ import SwiftUI
 struct WSTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .accentColor(Color("Accent"))
+            .accentColor(.Text.primary)
             .padding()
             .font(.custom("Helvetica Neue Medium Italic", size: 18))
-            .foregroundColor(Color("Text.Input"))
-            .background(Color("Background.Input"))
+            .foregroundColor(.Text.input)
+            .background(Color.Background.input)
             .cornerRadius(8)
     }
 }

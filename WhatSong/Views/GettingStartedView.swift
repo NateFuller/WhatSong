@@ -16,14 +16,14 @@ struct GettingStartedView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color("Background")
+                Color.Background.page
                     .ignoresSafeArea()
                 VStack {
                     Image("AppTitle")
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(Color("Accent"))
+                        .foregroundColor(.Text.primary)
                     if didAppear {
                         VStack(alignment: .trailing) {
                             VStack(alignment: .leading) {
@@ -31,8 +31,10 @@ struct GettingStartedView: View {
                                     .italic()
                                     .font(.system(size: 24))
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color("Accent"))
-                                TextField("enter username here", text: $viewModel.usernameInput)
+                                    .foregroundColor(.Text.primary)
+                                TextField("",
+                                          text: $viewModel.usernameInput,
+                                          prompt: .placeholder("enter username here"))
                                     .textFieldStyle(WSTextFieldStyle())
                                     .autocorrectionDisabled()
                                     .textInputAutocapitalization(.never)
@@ -42,7 +44,7 @@ struct GettingStartedView: View {
                                     .italic()
                                     .font(.system(size: 24))
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color("Accent"))
+                                    .foregroundColor(.Text.primary)
                                 NavigationLink {
                                     UserSignUpView()
                                 } label: {
@@ -50,7 +52,7 @@ struct GettingStartedView: View {
                                         .italic()
                                         .font(.system(size: 24))
                                         .fontWeight(.semibold)
-                                        .foregroundColor(Color("Accent"))
+                                        .foregroundColor(.Text.primary)
                                         .underline()
                                 }
                             }
@@ -67,6 +69,7 @@ struct GettingStartedView: View {
                 }
             }
         }
+        .tint(.Text.primary)
     }
 }
 

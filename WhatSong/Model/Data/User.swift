@@ -67,6 +67,7 @@ struct User: Codable {
             if let response = response as? HTTPURLResponse, response.statusCode == 200 { // success
                 if let data = data {
                     let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
 
                     do {
                         let user = try decoder.decode(User.self, from: data)

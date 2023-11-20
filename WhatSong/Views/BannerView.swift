@@ -24,7 +24,13 @@ struct BannerData {
             case .info: return .blue
             case .warning: return .yellow
             case .success: return .green
-            case .error: return .red
+            case .error: return .Background.error
+            }
+        }
+        
+        var textColor: Color {
+            switch self {
+            default: return .white
             }
         }
     }
@@ -39,19 +45,21 @@ struct BannerView: View {
     var body: some View {
         HStack {
             Text(data.title)
+                .font(.custom("Helvetica Neue Medium Italic", size: 16))
+                .foregroundColor(data.level.textColor)
             Spacer()
             if action != nil {
                 Button {
                     action?()
                 } label: {
                     Text(data.actionTitle ?? "Action")
-                        .foregroundColor(.white)
+                        .foregroundColor(data.level.textColor)
                         .padding(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
                         .background(Rectangle().foregroundColor(Color.black.opacity(0.3)))
                 }
             }
         }
-        .padding(EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8))
+        .padding()
         .background(data.level.tintColor)
     }
 }
