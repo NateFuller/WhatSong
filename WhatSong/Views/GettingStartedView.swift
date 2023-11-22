@@ -14,7 +14,7 @@ struct GettingStartedView: View {
     @State var viewModel: LoginViewModel = LoginViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.Background.page
                     .ignoresSafeArea()
