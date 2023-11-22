@@ -18,18 +18,17 @@ struct CommentView: View {
 
             VStack(alignment: .leading) {
                 Text(viewModel.username)
-                    .font(.subheadline)
+                    .font(.caption)
                 Text(viewModel.content)
                     .font(.body)
                 HStack {
                     Text(viewModel.dateString)
-                        .foregroundColor(Color(.darkGray))
+                        .foregroundColor(.Text.secondary)
                         .font(.caption)
                     Button {
                         // TODO: Implement "Reply" button
                     } label: {
                         Text("Reply")
-                            .foregroundColor(.black)
                             .fontWeight(.semibold)
                             .font(.caption)
                     }
@@ -39,15 +38,14 @@ struct CommentView: View {
                     } label: {
                         HStack {
                             Image(systemName: "heart")
-                                .foregroundColor(.black)
                             Text("\(viewModel.likes)")
                                 .font(.caption)
-                                .foregroundColor(.black)
                         }
                         .padding(4)
                     }
                 }
             }
+            .foregroundColor(.Text.primary)
         }
         .padding()
     }

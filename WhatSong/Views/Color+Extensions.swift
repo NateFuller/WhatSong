@@ -16,7 +16,9 @@ extension Color {
     
     enum Text {
         static let input = Color("text.input")
-        static let primary = Color("text.primary")
         static let placeholder = Color("text.placeholder")
+        
+        static let primary = Color("text.primary")
+        static let secondary = Color("text.secondary")
     }
 }

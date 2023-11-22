@@ -73,7 +73,6 @@ struct UserSignUpView: View {
 struct UserSignUpView_Previews: PreviewProvider {
     static var previews: some View {
         UserSignUpView(viewModel: UserSignUpViewModel())
-            .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }
 }
