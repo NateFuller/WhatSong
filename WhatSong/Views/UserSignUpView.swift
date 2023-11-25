@@ -12,6 +12,9 @@ import Combine
 struct UserSignUpView: View {
     @ObservedObject var viewModel: UserSignUpViewModel
     
+    @State var isSubmitting: Bool = false
+    @FocusState var focusedField: FocusableField?
+    
     var cancellable: AnyCancellable?
     
     init(viewModel: UserSignUpViewModel = UserSignUpViewModel()) {
@@ -27,37 +30,48 @@ struct UserSignUpView: View {
                         .italic()
                         .font(.system(size: 24))
                         .fontWeight(.semibold)
-                        .foregroundColor(.Text.primary)
                     TextField("", text: $viewModel.email, prompt: .placeholder("enter email here"))
                         .textFieldStyle(WSTextFieldStyle())
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .password
+                        }
+                        .focused($focusedField, equals: .email)
                     Text("password")
                         .italic()
                         .font(.system(size: 24))
                         .fontWeight(.semibold)
-                        .foregroundColor(.Text.primary)
                     
                     SecureField("", text: $viewModel.password, prompt: .placeholder("enter password here"))
                         .textFieldStyle(WSTextFieldStyle())
+                        .submitLabel(.go)
                         .onSubmit {
                             Task {
                                 await viewModel.submit()
                             }
                         }
+                        .focused($focusedField, equals: .password)
                 }
                 
                 HStack {
                     Spacer()
-                    Button("submit") {
+                    Button(action: {
                         Task {
-                            await viewModel.submit()
+                            await submit()
                         }
-                    }
-                    .font(.custom("Helvetica Neue Medium Italic", size: 18))
-                    .foregroundColor(.Text.primary)
-                    .buttonStyle(.bordered)
+                    }, label: {
+                        Text("submit")
+                            .italic()
+                            .font(.system(size: 24))
+                            .fontWeight(.semibold)
+                            .underline()
+                    })
+                    .disabled(isSubmitting)
                 }
+                
+                Spacer()
             }
             .padding()
         }
@@ -67,6 +81,19 @@ struct UserSignUpView: View {
         .onDisappear {
             viewModel.clearBanner()
         }
+    }
+    
+    private func submit() async {
+        isSubmitting = true
+        await viewModel.submit()
+        isSubmitting = false
+    }
+}
+
+extension UserSignUpView {
+    enum FocusableField {
+        case email
+        case password
     }
 }
 

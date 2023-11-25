@@ -11,7 +11,10 @@ import SwiftUI
 struct WhatSongApp: App {
     var body: some Scene {
         WindowGroup {
-            GettingStartedView()
+            NavigationStack {
+                GettingStartedView()
+            }
+            .foregroundStyle(Color.accentColor)
         }
     }
 }

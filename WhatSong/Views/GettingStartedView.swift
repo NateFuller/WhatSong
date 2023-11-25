@@ -14,62 +14,48 @@ struct GettingStartedView: View {
     @State var viewModel: LoginViewModel = LoginViewModel()
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.Background.page
-                    .ignoresSafeArea()
-                VStack {
-                    Image("AppTitle")
-                        .renderingMode(.template)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor(.Text.primary)
-                    if didAppear {
-                        VStack(alignment: .trailing) {
-                            VStack(alignment: .leading) {
-                                Text("sign in")
-                                    .italic()
-                                    .font(.system(size: 24))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.Text.primary)
-                                TextField("",
-                                          text: $viewModel.usernameInput,
-                                          prompt: .placeholder("enter username here"))
-                                    .textFieldStyle(WSTextFieldStyle())
-                                    .autocorrectionDisabled()
-                                    .textInputAutocapitalization(.never)
-                            }
-                            HStack {
-                                Text("or")
-                                    .italic()
-                                    .font(.system(size: 24))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.Text.primary)
-                                NavigationLink {
-                                    UserSignUpView()
-                                } label: {
-                                    Text("sign up")
-                                        .italic()
-                                        .font(.system(size: 24))
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.Text.primary)
-                                        .underline()
-                                }
-                            }
+        ZStack {
+            Color.Background.page.ignoresSafeArea()
+            VStack {
+                Image("AppTitle")
+                    .renderingMode(.template)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .transition(.slide)
+                VStack(alignment: .trailing) {
+                    VStack(alignment: .leading) {
+                        Text("sign in")
+                            .italic()
+                            .font(.system(size: 24))
+                            .fontWeight(.semibold)
+                        TextField("",
+                                  text: $viewModel.usernameInput,
+                                  prompt: .placeholder("enter username here"))
+                        .textFieldStyle(WSTextFieldStyle())
+                        .submitLabel(.go)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                    }
+                    HStack {
+                        Text("or")
+                            .italic()
+                            .font(.system(size: 24))
+                            .fontWeight(.semibold)
+                        NavigationLink {
+                            UserSignUpView()
+                        } label: {
+                            Text("sign up")
+                                .italic()
+                                .font(.system(size: 24))
+                                .fontWeight(.semibold)
+                                .underline()
                         }
                     }
                 }
-                .padding()
-                .onAppear() {
-                    if !didAppear {
-                        withAnimation(.easeInOut(duration: 1).delay(1)) {
-                            didAppear.toggle()
-                        }
-                    }
-                }
+                .transition(.opacity)
             }
+            .padding()
         }
-        .tint(.Text.primary)
     }
 }
 
